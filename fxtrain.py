@@ -98,7 +98,7 @@ for i in  lst:
     for t in range(0,len(temp1)-20):
             print(t)
             st= time.time()
-            l11.append(np.array(temp1[['normdir','normhs','normls','tt']][t:t+20]))
+            l11.append(np.array(temp1[['normdir','normhs','normls','tt']][t:t+20]))#preparing the input array 
             l12.append(np.array(temp1['nret'][t+19:t+20]))
             st1 =time.time()
             print(l11[-1])
@@ -107,8 +107,11 @@ for i in  lst:
             print(str(t)+ 'complete')
     l11 = np.array(l11)
     l12 = np.array(l12)
-    l11a = l11[0:round(0.7*len(l11))]
+    #70 percent training data
+     l11a = l11[0:round(0.7*len(l11))]
+
     l12a = l12[0:round(0.7*len(l12))]
+    #30 percent testing data
     lta  = l11[round(0.70*len(l11)):]
     ltb  = l12[round(0.70*len(l12)):]
     sw = i
